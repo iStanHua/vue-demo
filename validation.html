@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>vue-验证实例</title>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <style type="text/css">
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+
+        ul {
+            padding: 0;
+        }
+
+
+        .user {
+            height: 30px;
+            line-height: 30px;
+            padding: 10px;
+            border-top: 1px solid #eee;
+            overflow: hidden;
+            transition: all .25s ease;
+        }
+
+
+        .user:last-child {
+            border-bottom: 1px solid #eee;
+        }
+
+
+        .v-enter,
+        .v-leave-active {
+            height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            border-top-width: 0;
+            border-bottom-width: 0;
+        }
+
+
+        .error {
+            color: #f00;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="validation">
+        <ul>
+            <li v-for="user in usersDate" class="user" :key="user['.key']">
+                <span>{{user.name}} - {{user.email}}</span>
+                <button v-on:click="removeUser(user)">X</button>
+            </li>
+        </ul>
+        <form id="form" v-on:submit.prevent="addUser">
+            <input type="text" v-model="newUser.name" placeholder="Username">
+            <span class="error" v-show="!validation.name">Name cannot be empty.</span><br>
+            <input type="email" v-model="newUser.email" placeholder="email@email.com">
+            <span class="error" v-show="!validation.email">Please provide a valid email address.</span><br>
+            <input type="submit" value="Add User">
+        </form>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="js/validation.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>vue-slot实例</title>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+</head>
+
+<body>
+    <div id="app">
+        <slot-page></slot-page>
+    </div>
+    <script type="text/x-template" id="home-tpl">
+        <p>home页</p>
+    </script>
+    <script type="text/x-template" id="mail-tpl">
+        <p>mail页</p>
+    </script>
+    <script type="text/x-template" id="find-tpl">
+        <p>find页</p>
+    </script>
+    <script type="text/x-template" id="user-tpl">
+        <p>user页</p>
+    </script>
+    <script src="js/vue.js"></script>
+    <script src="js/slot.js"></script>
+</body>
+
+</html>

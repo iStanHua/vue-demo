@@ -1,0 +1,16 @@
+<div class="sidenav">
+    <div class="nav">
+        <a class="item@% if(active==0) {%@ active @%}%@" href="index.html">首页</a>
+        <a class="item@% if(active==1) {%@ active @%}%@" href="component.html">component</a>
+        <a class="item@% if(active==2) {%@ active @%}%@" href="editor.html">editor</a>
+        <a class="item@% if(active==3) {%@ active @%}%@" href="github.html">github</a>
+        <a class="item@% if(active==4) {%@ active @%}%@" href="modal.html">modal</a>
+        <a class="item@% if(active==5) {%@ active @%}%@" href="polygraph.html">polygraph</a>
+        <a class="item@% if(active==6) {%@ active @%}%@" href="scalableheader.html">scalableheader</a>
+        <a class="item@% if(active==7) {%@ active @%}%@" href="select.html">select</a>
+        <a class="item@% if(active==8) {%@ active @%}%@" href="slot.html">slot</a>
+        <a class="item@% if(active==9) {%@ active @%}%@" href="todo.html">todo</a>
+        <a class="item@% if(active==10) {%@ active @%}%@" href="tree.html">tree</a>
+        <a class="item@% if(active==11) {%@ active @%}%@" href="validation.html">validation</a>
+    </div>
+</div>

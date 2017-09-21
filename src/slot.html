@@ -1,0 +1,34 @@
+@% extend('layout.art') %@
+<!--title-->
+@% block('title', function(){ %@ slot vue2实例 @% }) %@
+<!--head-->
+@% block('head', function(){ %@
+<link rel="stylesheet" type="text/css" href="css/slot.css?v=@%=v%@" /> @% }) %@
+<!--header-->
+@% block('headerTitle', function(){ %@ slot @% }) %@
+<!--content-->
+@% block('content', function(){ %@
+<!--aside-->
+@% include('aside.art', {active:8}) %@
+<div class="main">
+    <div class="wrapper">
+        <slot-page></slot-page>
+    </div>
+</div>
+@% }) %@
+<!--js-->
+@% block('js', function(){ %@
+<script type="text/x-template" id="home-tpl">
+    <p>home页</p>
+</script>
+<script type="text/x-template" id="mail-tpl">
+    <p>mail页</p>
+</script>
+<script type="text/x-template" id="find-tpl">
+    <p>find页</p>
+</script>
+<script type="text/x-template" id="user-tpl">
+    <p>user页</p>
+</script>
+<script type="text/javascript" src="js/app/slot.js"></script>
+@% }) %@

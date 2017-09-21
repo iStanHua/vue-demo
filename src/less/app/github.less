@@ -1,0 +1,58 @@
+@import '../base.less';
+
+input[type=radio] {
+  margin-right: 15px;
+}
+
+p {
+  padding: 10px;
+}
+
+li {
+  line-height: 1.5em;
+  margin-bottom: 20px;
+}
+
+.author,
+.date {
+  font-weight: bold;
+}
+
+#book-loading-shade {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  z-index: 10;
+  opacity: 1;
+  pointer-events: none;
+}
+
+#book-loading-spinner {
+  height: 40px;
+  width: 40px;
+  left: 50%;
+  top: 50%;
+  margin: -20px 0 0 -20px;
+  position: absolute;
+  -webkit-animation: rotation .6s infinite linear;
+  -moz-animation: rotation .6s infinite linear;
+  -o-animation: rotation .6s infinite linear;
+  animation: rotation .6s infinite linear;
+  border-left: 6px solid rgba(0, 174, 239, .15);
+  border-right: 6px solid rgba(0, 174, 239, .15);
+  border-bottom: 6px solid rgba(0, 174, 239, .15);
+  border-top: 6px solid rgba(0, 174, 239, .8);
+  border-radius: 100%;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(359deg);
+  }
+}

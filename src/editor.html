@@ -1,0 +1,23 @@
+@% extend('layout.art') %@
+<!--title-->
+@% block('title', function(){ %@ editor vue2实例 @% }) %@
+<!--head-->
+@% block('head', function(){ %@
+<link rel="stylesheet" type="text/css" href="css/editor.css?v=@%=v%@" /> @% }) %@
+<!--header-->
+@% block('headerTitle', function(){ %@ editor @% }) %@
+<!--content-->
+@% block('content', function(){ %@
+<!--aside-->
+@% include('aside.art', {active:2}) %@
+<div class="main">
+    <div class="wrapper">
+        <textarea class="input" :value="input" @input="update"></textarea>
+        <div class="markdown" v-html="compiledMarkdown"></div>
+    </div>
+</div>
+@% }) %@
+<!--js-->
+@% block('js', function(){ %@
+<script type="text/javascript" src="js/app/editor.js"></script>
+@% }) %@

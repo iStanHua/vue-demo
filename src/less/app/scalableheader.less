@@ -1,0 +1,53 @@
+@import '../base.less';
+
+.draggable-header-view {
+  position: relative;
+  width: 320px;
+  height: 560px;
+  overflow: hidden;
+  margin: 30px auto;
+  font-weight: 300;
+  font-size: 14px;
+  color: #fff;
+  background-color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .15);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  h1 {
+    font-weight: 300;
+    font-size: 1.8em;
+    margin-top: 0;
+  }
+
+  a {
+    color: #fff;
+  }
+
+}
+
+.draggable-header-view .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.draggable-header-view .draggable-content,
+.draggable-header-view .draggable-header {
+  position: relative;
+  z-index: 1;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.draggable-header-view .draggable-header {
+  height: 160px;
+}
+
+.draggable-header-view .draggable-content {
+  color: #333;
+  line-height: 1.5em;
+}

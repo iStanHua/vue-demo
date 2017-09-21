@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@% block('title') %@</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /> @% block('head') %@
+</head>
+
+<body>
+    <div class="page" id="app">
+        <div class="header">
+            <a class="mat-button" id="mat-button"><span></span></a>
+            <div class="title">@% block('headerTitle') %@</div>
+        </div>
+        <div class="content">
+            @% block('content') %@
+        </div>
+    </div>
+    <script type="text/javascript" src="js/common/utils.js?v=@%=v%@"></script>
+    <script type="text/javascript" src="js/lib/vue.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var matButton = document.getElementById("mat-button");
+            utils.on(matButton, 'click', function () {
+                var body = document.getElementsByTagName('body')[0];
+                if (utils.hasClass(body, 'sidenav-closed')) {
+                    utils.removeClass(body, 'sidenav-closed');
+                }
+                else {
+                    utils.addClass(body, 'sidenav-closed');
+                }
+            })
+        }
+    </script>
+    @% block('js') %@
+</body>
+
+</html>

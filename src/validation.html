@@ -1,0 +1,35 @@
+@% extend('layout.art') %@
+<!--title-->
+@% block('title', function(){ %@ validation vue2实例 @% }) %@
+<!--head-->
+@% block('head', function(){ %@
+<link rel="stylesheet" type="text/css" href="css/validation.css?v=@%=v%@" /> @% }) %@
+<!--header-->
+@% block('headerTitle', function(){ %@ validation @% }) %@
+<!--content-->
+@% block('content', function(){ %@
+<!--aside-->
+@% include('aside.art', {active:11}) %@
+<div class="main">
+    <div class="wrapper">
+        <div id="validation">
+            <ul>
+                <li v-for="user in usersDate" class="user" :key="user['.key']">
+                    <span>{{user.name}} - {{user.email}}</span>
+                    <button v-on:click="removeUser(user)">X</button>
+                </li>
+            </ul>
+            <form id="form" v-on:submit.prevent="addUser">
+                <input type="text" v-model="newUser.name" placeholder="Username">
+                <span class="error" v-show="!validation.name">Name cannot be empty.</span><br>
+                <input type="email" v-model="newUser.email" placeholder="email@email.com">
+                <span class="error" v-show="!validation.email">Please provide a valid email address.</span><br>
+                <input type="submit" value="Add User">
+            </form>
+        </div>
+    </div>
+    @% }) %@
+    <!--js-->
+    @% block('js', function(){ %@
+    <script type="text/javascript" src="js/app/validation.js"></script>
+    @% }) %@

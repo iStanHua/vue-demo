@@ -1,0 +1,52 @@
+@% extend('layout.art') %@
+<!--title-->
+@% block('title', function(){ %@ polygraph vue2实例 @% }) %@
+<!--head-->
+@% block('head', function(){ %@
+<link rel="stylesheet" type="text/css" href="css/polygraph.css?v=@%=v%@" /> @% }) %@
+<!--header-->
+@% block('headerTitle', function(){ %@ polygraph @% }) %@
+<!--content-->
+@% block('content', function(){ %@
+<!--aside-->
+@% include('aside.art', {active:5}) %@
+<div class="main">
+    <div class="wrapper">
+        <div class="polygraph">
+            <!-- Use the component -->
+            <svg width="200" height="200">
+                <polygraph :stats="stats"></polygraph>
+            </svg>
+            <!-- controls -->
+            <div v-for="stat in stats">
+                <label>{{stat.label}}</label>
+                <input type="range" v-model="stat.value" min="0" max="100">
+                <span>{{stat.value}}</span>
+                <button @click="remove(stat)" class="remove">X</button>
+            </div>
+            <form id="add">
+                <input name="newlabel" v-model="newLabel">
+                <button @click="add">Add a Stat</button>
+            </form>
+            <pre id="raw">{{ stats }}</pre>
+        </div>
+    </div>
+</div>
+@% }) %@
+<!--js-->
+@% block('js', function(){ %@
+<script type="text/x-template" id="polygraph-template">
+    <g>
+        <polygon :points="points"></polygon>
+        <circle cx="100" cy="100" r="80"></circle>
+        <axis-label v-for="(stat, index) in stats" :stat="stat" :index="index" :total="stats.length">
+        </axis-label>
+    </g>
+</script>
+
+<!-- template for the axis label component. -->
+<script type="text/x-template" id="axis-label-template">
+    <text :x="point.x" :y="point.y">{{stat.label}}</text>
+</script>
+<script type="text/javascript" src="js/app/polygraph.js"></script>
+@% }) %@

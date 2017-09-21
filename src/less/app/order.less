@@ -1,0 +1,27 @@
+@import '../base.less';
+
+#mainorder {
+  .flexbox();
+
+  div {
+    height: 100px;
+  }
+
+  .articleorder {
+    background-color: red;
+    .flex(1);
+    .order(2);
+  }
+
+  .navorder {
+    width: 200px;
+    background-color: lightblue;
+    .order(1);
+  }
+
+  .asideorder {
+    width: 200px;
+    background-color: lightgreen;
+    .order(3);
+  }
+}
